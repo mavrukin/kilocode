@@ -327,6 +327,19 @@ it.instance("uses current settings when enabling an initialized policy", () =>
       ),
     )
 
+    if (!status.available) {
+      expect(status.enabled).toBe(false)
+      expect(status.version).toBe(0)
+      expect(yield* SandboxPolicy.peek(test.directory, id)).toEqual({
+        enabled: false,
+        mode: "deny",
+        allowedHosts: [],
+        writablePaths: [],
+        version: 0,
+      })
+      return
+    }
+
     expect(status.enabled).toBe(true)
     expect(status.version).toBe(1)
     expect(yield* SandboxPolicy.peek(test.directory, id)).toEqual({
