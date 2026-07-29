@@ -42,7 +42,8 @@ export namespace SandboxStore {
     if (state.allowedHosts !== undefined && !Array.isArray(state.allowedHosts)) return false
     if (state.writablePaths !== undefined && !Array.isArray(state.writablePaths)) return false
     if (Array.isArray(state.allowedHosts) && state.allowedHosts.some((value) => typeof value !== "string")) return false
-    if (Array.isArray(state.writablePaths) && state.writablePaths.some((value) => typeof value !== "string")) return false
+    if (Array.isArray(state.writablePaths) && state.writablePaths.some((value) => typeof value !== "string"))
+      return false
     if (state.mode === "proxy" && (!Array.isArray(state.allowedHosts) || state.allowedHosts.length === 0)) return false
     return true
   }
