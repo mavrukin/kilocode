@@ -48,15 +48,21 @@ const run = Effect.fn("ShellEnvTest.run")(function* (args: Tool.InferParameters<
   return yield* tool.execute(args, ctx)
 })
 
-it.effect("does not expose backend credentials to model shell commands", () =>
+it.effect("does not expose backend credentials or config to model shell commands", () =>
   Effect.acquireUseRelease(
     Effect.sync(() => {
       const values = {
         password: process.env.KILO_SERVER_PASSWORD,
         username: process.env.KILO_SERVER_USERNAME,
+        config: process.env.KILO_CONFIG,
+        content: process.env.KILO_CONFIG_CONTENT,
+        directory: process.env.KILO_CONFIG_DIR,
       }
       process.env.KILO_SERVER_PASSWORD = "secret"
       process.env.KILO_SERVER_USERNAME = "kilo"
+      process.env.KILO_CONFIG = "/secret/config.json"
+      process.env.KILO_CONFIG_CONTENT = '{"provider":{"apiKey":"secret"}}'
+      process.env.KILO_CONFIG_DIR = "/secret/config"
       return values
     }),
     () =>
@@ -66,8 +72,8 @@ it.effect("does not expose backend credentials to model shell commands", () =>
             run({
               command:
                 process.platform === "win32"
-                  ? "if defined KILO_SERVER_PASSWORD (echo set) else (echo unset)"
-                  : 'test -z "$KILO_SERVER_PASSWORD" && printf unset',
+                  ? "if defined KILO_SERVER_PASSWORD (echo set) else if defined KILO_CONFIG_CONTENT (echo set) else (echo unset)"
+                  : 'test -z "$KILO_SERVER_PASSWORD" && test -z "$KILO_SERVER_USERNAME" && test -z "$KILO_CONFIG" && test -z "$KILO_CONFIG_CONTENT" && test -z "$KILO_CONFIG_DIR" && printf unset',
               description: "Check backend credential isolation",
             }),
           ),
@@ -80,6 +86,12 @@ it.effect("does not expose backend credentials to model shell commands", () =>
         else process.env.KILO_SERVER_PASSWORD = values.password
         if (values.username === undefined) delete process.env.KILO_SERVER_USERNAME
         else process.env.KILO_SERVER_USERNAME = values.username
+        if (values.config === undefined) delete process.env.KILO_CONFIG
+        else process.env.KILO_CONFIG = values.config
+        if (values.content === undefined) delete process.env.KILO_CONFIG_CONTENT
+        else process.env.KILO_CONFIG_CONTENT = values.content
+        if (values.directory === undefined) delete process.env.KILO_CONFIG_DIR
+        else process.env.KILO_CONFIG_DIR = values.directory
       }),
   ),
 )

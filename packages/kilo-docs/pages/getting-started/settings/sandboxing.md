@@ -161,7 +161,7 @@ A configured destination is an egress route, not tenant, organization, repositor
 
 The config setting supplies the initial default for new sessions that do not have a saved preference. Use the lock button in the VS Code prompt or `/sandbox` in the CLI to change the current session. Your latest choice is saved as the default for future sessions in that project, takes precedence over the config default, and persists across restarts.
 
-Each session preserves its enabled or disabled choice. Saving changes to network mode, allowed destinations, or additional writable paths refreshes existing session policies before their next tool execution. Enabling sandboxing also reads the latest settings. A tool that is already running keeps the policy it started with.
+Each session preserves its enabled or disabled choice. Saving changes through Kilo settings to network mode, allowed destinations, or additional writable paths refreshes existing session policies before their next tool execution. Enabling sandboxing also reads the latest settings. A tool that is already running keeps the policy it started with.
 
 At creation, forked sessions retain the source session's confinement and subagents inherit the stricter combination of parent and child settings: sandboxing remains enabled if either requires it, deny-all wins over destination exceptions, destination lists intersect, and additional writable paths intersect. Later trusted sandbox settings replace those network and writable-path limits before the affected session's next tool execution.
 

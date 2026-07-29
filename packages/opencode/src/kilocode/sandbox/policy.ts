@@ -29,38 +29,10 @@ const refreshes = new Map<SessionID, { semaphore: Semaphore.Semaphore; refs: num
 const gates = new Map<SessionID, { semaphore: Semaphore.Semaphore; refs: number }>()
 const permits = 1_000_000
 let revision = 0
-let configStamp = ""
-let configChecked = 0
-
-const configFiles = ["config.json", "kilo.json", "kilo.jsonc", "opencode.json", "opencode.jsonc", "config"]
 
 GlobalBus.on("event", (event) => {
   if (event.payload?.type === "global.config.updated") revision++
 })
-
-function externalConfig() {
-  const now = Date.now()
-  if (now - configChecked < 1_000) return
-  configChecked = now
-  const next = JSON.stringify(
-    configFiles.map((file) => {
-      try {
-        return readFileSync(path.join(Global.Path.config, file), "utf8")
-      } catch (err) {
-        const code = err instanceof Error && "code" in err ? Reflect.get(err, "code") : undefined
-        if (code === "ENOENT") return null
-        throw err
-      }
-    }),
-  )
-  if (!configStamp) {
-    configStamp = next
-    return
-  }
-  if (next === configStamp) return
-  configStamp = next
-  revision++
-}
 
 function key(directory: string, sessionID: SessionID) {
   return directory + "\0" + sessionID
@@ -306,7 +278,6 @@ function current(
   inside = false,
 ): Effect.Effect<{ directory: string; state: Snapshot }, never, Config.Service | Database.Service> {
   return Effect.gen(function* () {
-    yield* Effect.sync(externalConfig)
     const expected = revision
     const state = yield* snapshot(sessionID)
     const id = key(state.directory, sessionID)
