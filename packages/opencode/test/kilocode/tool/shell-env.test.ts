@@ -72,7 +72,7 @@ it.effect("does not expose backend credentials or config to model shell commands
             run({
               command:
                 process.platform === "win32"
-                  ? "if defined KILO_SERVER_PASSWORD (echo set) else if defined KILO_CONFIG_CONTENT (echo set) else (echo unset)"
+                  ? "if ($env:KILO_SERVER_PASSWORD -or $env:KILO_SERVER_USERNAME -or $env:KILO_CONFIG -or $env:KILO_CONFIG_CONTENT -or $env:KILO_CONFIG_DIR) { 'set' } else { 'unset' }"
                   : 'test -z "$KILO_SERVER_PASSWORD" && test -z "$KILO_SERVER_USERNAME" && test -z "$KILO_CONFIG" && test -z "$KILO_CONFIG_CONTENT" && test -z "$KILO_CONFIG_DIR" && printf unset',
               description: "Check backend credential isolation",
             }),
