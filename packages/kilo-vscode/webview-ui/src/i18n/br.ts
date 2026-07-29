@@ -1493,8 +1493,6 @@ export const dict = {
   "settings.sandboxing.writablePaths.title": "Caminhos graváveis adicionais",
   "settings.sandboxing.writablePaths.description":
     "Caminhos adicionais do sistema de arquivos onde o sandbox permite gravação (por exemplo, /tmp, /var/log). Eles são mesclados com os caminhos graváveis padrão quando o sandbox está ativo.",
-  "settings.sandboxing.hint":
-    "As alterações salvas de rede, destinos e caminhos graváveis são aplicadas antes da próxima execução de ferramenta de cada sessão. Ativar o sandbox também usa as configurações mais recentes.",
   "settings.experimental.swePruner.title": "SWE-Pruner",
   "settings.experimental.swePruner.description":
     "Ativar SWE-Pruner: poda das saídas grandes das ferramentas de leitura, busca e shell levando em conta a tarefa, guiada por uma pergunta de foco fornecida pelo agente",

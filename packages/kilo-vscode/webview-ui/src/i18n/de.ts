@@ -1513,8 +1513,6 @@ export const dict = {
   "settings.sandboxing.writablePaths.title": "Zusätzliche schreibbare Pfade",
   "settings.sandboxing.writablePaths.description":
     "Zusätzliche Dateisystempfade, in die die Sandbox Schreibvorgänge erlaubt (z. B. /tmp, /var/log). Diese werden mit den Standard-Schreibpfaden zusammengeführt, wenn die Sandbox aktiv ist.",
-  "settings.sandboxing.hint":
-    "Gespeicherte Änderungen an Netzwerk, Zielen und beschreibbaren Pfaden werden vor der nächsten Tool-Ausführung jeder Sitzung angewendet. Beim Aktivieren der Sandbox werden ebenfalls die neuesten Einstellungen verwendet.",
   "settings.experimental.swePruner.title": "SWE-Pruner",
   "settings.experimental.swePruner.description":
     "SWE-Pruner aktivieren: aufgabenbewusstes Kürzen großer Ausgaben der Lese-, Such- und Shell-Werkzeuge, gesteuert durch eine vom Agenten bereitgestellte Fokusfrage",

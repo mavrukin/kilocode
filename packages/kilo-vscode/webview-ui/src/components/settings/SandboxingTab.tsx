@@ -101,8 +101,6 @@ const SandboxingTab: Component = () => {
         </Switch>
       </SettingsRow>
 
-      <p data-slot="sandbox-settings-hint">{language.t("settings.sandboxing.hint")}</p>
-
       <SettingsRow
         title={language.t("settings.sandboxing.network.title")}
         description={language.t("settings.sandboxing.network.description")}

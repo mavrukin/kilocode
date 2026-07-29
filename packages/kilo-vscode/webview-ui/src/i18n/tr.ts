@@ -1477,8 +1477,6 @@ export const dict = {
   "settings.sandboxing.writablePaths.title": "Ek Yazılabilir Yollar",
   "settings.sandboxing.writablePaths.description":
     "Sandığın yazılmasına izin veren ek dosya sistemi yolları (ör. /tmp, /var/log). Sandık etkinken varsayılan yazılabilir yollarla birleştirilir.",
-  "settings.sandboxing.hint":
-    "Kaydedilen ağ, hedef ve yazılabilir yol değişiklikleri, her oturumun bir sonraki araç çalıştırmasından önce uygulanır. Korumalı alanı etkinleştirmek de en güncel ayarları kullanır.",
   "settings.experimental.swePruner.title": "SWE-Pruner",
   "settings.experimental.swePruner.description":
     "SWE-Pruner'ı etkinleştir: ajan tarafından sağlanan bir odak sorusunun yönlendirmesiyle okuma, arama ve kabuk araçlarının büyük çıktılarının göreve duyarlı olarak budanması",

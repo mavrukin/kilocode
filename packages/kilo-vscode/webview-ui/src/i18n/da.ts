@@ -1483,8 +1483,6 @@ export const dict = {
   "settings.sandboxing.writablePaths.title": "Yderligere skrivbare stier",
   "settings.sandboxing.writablePaths.description":
     "Yderligere filsystemstier, som sandkassen tillader skrivning til (f.eks. /tmp, /var/log). Disse flettes med de standardskrivbare stier, når sandkassen er aktiv.",
-  "settings.sandboxing.hint":
-    "Gemte ændringer af netværk, destinationer og skrivbare stier anvendes før hver sessions næste værktøjskørsel. Aktivering af sandkassekørsel bruger også de nyeste indstillinger.",
   "settings.experimental.swePruner.title": "SWE-Pruner",
   "settings.experimental.swePruner.description":
     "Aktivér SWE-Pruner: opgavebevidst beskæring af store output fra læse-, søge- og shellværktøjer, styret af et fokusspørgsmål fra agenten",

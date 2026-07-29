@@ -1489,8 +1489,6 @@ export const dict = {
   "settings.sandboxing.writablePaths.title": "Dodatne upisive putanje",
   "settings.sandboxing.writablePaths.description":
     "Dodatne putanje sistema datoteka u koje sandbox dozvoljava upis (npr. /tmp, /var/log). Spajaju se sa zadanim upisivim putanjama kada je sandbox aktivan.",
-  "settings.sandboxing.hint":
-    "Spremljene promjene mreže, odredišta i upisivih putanja primjenjuju se prije sljedećeg pokretanja alata u svakoj sesiji. Omogućavanje sandboxa također koristi najnovije postavke.",
   "settings.experimental.swePruner.title": "SWE-Pruner",
   "settings.experimental.swePruner.description":
     "Omogući SWE-Pruner: orezivanje velikih izlaza alata za čitanje i pretragu te shell alata koje uzima zadatak u obzir, vođeno fokusnim pitanjem koje pruža agent",

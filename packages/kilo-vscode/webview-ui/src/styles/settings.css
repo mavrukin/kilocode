@@ -121,14 +121,6 @@
   max-width: none;
 }
 
-[data-slot="sandbox-settings-hint"] {
-  font-size: var(--font-size-small);
-  color: var(--text-weak-base, var(--vscode-descriptionForeground));
-  margin: 0 0 8px;
-  padding: 6px 10px;
-  border-left: 2px solid var(--border-weak-base);
-  opacity: 0.85;
-}
 
 .settings-font-size-control {
   display: flex;

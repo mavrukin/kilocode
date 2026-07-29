@@ -1517,8 +1517,6 @@ export const dict = {
   "settings.sandboxing.writablePaths.title": "Chemins en écriture supplémentaires",
   "settings.sandboxing.writablePaths.description":
     "Chemins système supplémentaires autorisés en écriture par le bac à sable (par ex. /tmp, /var/log). Ils sont fusionnés avec les chemins en écriture par défaut lorsque le bac à sable est actif.",
-  "settings.sandboxing.hint":
-    "Les modifications enregistrées du réseau, des destinations et des chemins accessibles en écriture sont appliquées avant la prochaine exécution d’outil de chaque session. L’activation du bac à sable utilise également les paramètres les plus récents.",
   "settings.experimental.swePruner.title": "SWE-Pruner",
   "settings.experimental.swePruner.description":
     "Activer SWE-Pruner : élagage des sorties volumineuses des outils de lecture, de recherche et de shell, tenant compte de la tâche et guidé par une question de focalisation fournie par l’agent",

@@ -1487,8 +1487,6 @@ export const dict = {
   "settings.sandboxing.writablePaths.title": "Extra schrijfbare paden",
   "settings.sandboxing.writablePaths.description":
     "Extra bestandssysteempaden waar de sandbox schrijftoestemming voor geeft (bijv. /tmp, /var/log). Deze worden samengevoegd met de standaard schrijfbare paden wanneer de sandbox actief is.",
-  "settings.sandboxing.hint":
-    "Opgeslagen wijzigingen aan het netwerk, bestemmingen en schrijfbare paden worden vóór de volgende tooluitvoering van elke sessie toegepast. Bij het inschakelen van sandboxing worden ook de meest recente instellingen gebruikt.",
   "settings.experimental.swePruner.title": "SWE-Pruner",
   "settings.experimental.swePruner.description":
     "SWE-Pruner inschakelen: taakgericht snoeien van grote uitvoer van lees-, zoek- en shelltools, gestuurd door een focusvraag van de agent",
