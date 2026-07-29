@@ -1479,7 +1479,7 @@ export const dict = {
   "settings.sandboxing.writablePaths.description":
     "サンドボックスでの書き込みを許可する追加のファイルシステムパス（例: /tmp、/var/log）。サンドボックス有効時、デフォルトの書き込み可能パスと統合されます。",
   "settings.sandboxing.hint":
-    "ネットワーク、接続先、書き込み可能パスへの変更は、新しいセッションにのみ適用されます。既存のセッションには、開始時のポリシーが引き続き適用されます。",
+    "保存したネットワーク、接続先、書き込み可能パスの変更は、各セッションで次にツールを実行する前に適用されます。サンドボックス化を有効にした場合も、最新の設定が使用されます。",
   "settings.experimental.swePruner.title": "SWE-Pruner",
   "settings.experimental.swePruner.description":
     "SWE-Pruner を有効にする: エージェントが提供するフォーカス質問に基づき、タスクを考慮して、読み取り、検索、シェルツールのサイズの大きい出力をプルーニングします",

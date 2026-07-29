@@ -7,6 +7,9 @@ import { Config } from "../../../src/config/config"
 import { KilocodeConfigOverlay } from "../../../src/kilocode/config/overlay"
 import { Permission } from "../../../src/permission"
 import { PtyPaths } from "../../../src/server/routes/instance/httpapi/groups/pty"
+import { SessionPaths } from "../../../src/server/routes/instance/httpapi/groups/session"
+import { SandboxStore } from "../../../src/kilocode/sandbox/store"
+import type { Session } from "../../../src/session/session"
 import { Filesystem } from "../../../src/util/filesystem"
 import { resetDatabase } from "../../fixture/db"
 import { disposeAllInstances, tmpdir } from "../../fixture/fixture"
@@ -418,6 +421,44 @@ describe("config overlay routes", () => {
       "ask",
     )
   })
+
+  test.serial(
+    "applies saved global sandbox settings to initialized sessions",
+    async () => {
+      await using global = await tmpdir()
+      await using project = await tmpdir({ git: true })
+      await setGlobal(global.path, { sandbox: { enabled: true, network: "deny" } })
+      const session = await json<Session.Info>(
+        await req(project.path, SessionPaths.create, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: "{}",
+        }),
+      )
+      await json(await req(project.path, `/session/${session.id}/sandbox`))
+      expect(await SandboxStore.read(project.path, session.id)).toMatchObject({ mode: "deny", version: 0 })
+
+      await json(
+        await req(project.path, "/config/overlay", {
+          method: "PATCH",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            scope: "global",
+            set: { sandbox: { enabled: true, network: "allow", writable_paths: [global.path] } },
+          }),
+        }),
+      )
+      await json(await req(project.path, `/session/${session.id}/sandbox`))
+
+      expect(await SandboxStore.read(project.path, session.id)).toMatchObject({
+        enabled: true,
+        mode: "allow",
+        writablePaths: [global.path],
+        version: 1,
+      })
+    },
+    20_000,
+  )
 
   terminal("preserves active terminals after updating global console preferences", async () => {
     await using global = await tmpdir()

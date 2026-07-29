@@ -1274,7 +1274,7 @@ export const dict = {
   "settings.sandboxing.writablePaths.description":
     "Percorsi aggiuntivi del file system in cui la sandbox consente la scrittura (es. /tmp, /var/log). Vengono uniti con i percorsi di scrittura predefiniti quando la sandbox è attiva.",
   "settings.sandboxing.hint":
-    "Le modifiche a rete, destinazioni e percorsi scrivibili si applicano solo alle nuove sessioni. Le sessioni esistenti mantengono la policy con cui sono state avviate.",
+    "Le modifiche salvate a rete, destinazioni e percorsi scrivibili vengono applicate prima della successiva esecuzione di uno strumento in ogni sessione. L'attivazione della sandbox usa inoltre le impostazioni più recenti.",
   "settings.experimental.swePruner.title": "SWE-Pruner",
   "settings.experimental.swePruner.description":
     "Abilita SWE-Pruner: potatura degli output di grandi dimensioni degli strumenti di lettura, ricerca e shell, che tiene conto del compito ed è guidata da una domanda di focalizzazione fornita dall'agente",

@@ -1,5 +1,6 @@
 ---
 "kilo-code": patch
+"@kilocode/cli": patch
 ---
 
-Clarify that sandbox settings changes apply to new sessions only, with a hint in the Sandboxing settings tab and expanded documentation
+Apply saved sandbox settings to existing sessions and use the latest settings when enabling sandboxing

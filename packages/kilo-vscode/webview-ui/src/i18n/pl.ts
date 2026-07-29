@@ -1443,7 +1443,7 @@ export const dict = {
   "settings.sandboxing.writablePaths.description":
     "Dodatkowe ścieżki systemu plików, do których sandbox zezwala na zapis (np. /tmp, /var/log). Są one łączone z domyślnymi ścieżkami zapisu, gdy sandbox jest aktywny.",
   "settings.sandboxing.hint":
-    "Zmiany w sieci, miejscach docelowych i ścieżkach zapisu dotyczą tylko nowych sesji. Istniejące sesje zachowują zasady obowiązujące w chwili ich rozpoczęcia.",
+    "Zapisane zmiany sieci, miejsc docelowych i ścieżek zapisu są stosowane przed następnym uruchomieniem narzędzia w każdej sesji. Włączenie izolacji w piaskownicy również wykorzystuje najnowsze ustawienia.",
   "settings.experimental.swePruner.title": "SWE-Pruner",
   "settings.experimental.swePruner.description":
     "Włącz SWE-Pruner: przycinanie obszernych danych wyjściowych narzędzi odczytu, wyszukiwania i powłoki z uwzględnieniem zadania, kierowane pytaniem przewodnim dostarczonym przez agenta",

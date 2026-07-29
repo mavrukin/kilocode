@@ -7,7 +7,7 @@ import type { Profile } from "@kilocode/sandbox"
 import type { SessionID } from "@/session/schema"
 
 export namespace SandboxStore {
-  /** Session confinement authority captured independently from later configuration reloads. */
+  /** Persisted session confinement authority, refreshed from trusted settings between tool executions. */
   export type Snapshot = {
     enabled: boolean
     mode: Profile["network"]["mode"]

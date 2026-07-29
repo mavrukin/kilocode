@@ -1437,7 +1437,7 @@ export const dict = {
   "settings.sandboxing.writablePaths.description":
     "沙盒允许写入的额外文件系统路径（例如 /tmp、/var/log）。沙盒启用后，这些路径会与默认可写路径合并。",
   "settings.sandboxing.hint":
-    "网络、目标地址和可写路径的更改仅适用于新会话。现有会话将保留其创建时的策略。",
+    "保存的网络、目标地址和可写路径更改会在每个会话下次运行工具之前应用。启用沙盒也会使用最新设置。",
   "settings.experimental.swePruner.title": "SWE-Pruner",
   "settings.experimental.swePruner.description":
     "启用 SWE-Pruner：根据智能体提供的聚焦问题，对读取、搜索和 shell 工具的大型输出进行任务感知裁剪",

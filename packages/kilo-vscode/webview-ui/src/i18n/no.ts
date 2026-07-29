@@ -1443,7 +1443,7 @@ export const dict = {
   "settings.sandboxing.writablePaths.description":
     "Ytterligere filsystembaner som sandkassen tillater skriving til (f.eks. /tmp, /var/log). Disse flettes med de standardskrivbare banene når sandkassen er aktiv.",
   "settings.sandboxing.hint":
-    "Endringer i nettverk, mål og skrivbare baner gjelder bare for nye økter. Eksisterende økter beholder retningslinjene de startet med.",
+    "Lagrede endringer i nettverk, mål og skrivbare baner tas i bruk før hver økts neste verktøykjøring. Når sandkassekjøring aktiveres, brukes også de nyeste innstillingene.",
   "settings.experimental.swePruner.title": "SWE-Pruner",
   "settings.experimental.swePruner.description":
     "Aktiver SWE-Pruner: oppgavebevisst beskjæring av store utdata fra lese-, søke- og shell-verktøy, styrt av et fokusspørsmål fra agenten",

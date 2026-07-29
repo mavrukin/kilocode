@@ -1398,7 +1398,7 @@ export const dict = {
   "settings.sandboxing.writablePaths.description":
     "沙盒允許寫入的額外檔案系統路徑（例如 /tmp、/var/log）。沙盒啟用後，這些路徑會與預設可寫路徑合併。",
   "settings.sandboxing.hint":
-    "網路、目的地和可寫入路徑的變更只會套用至新的工作階段。現有工作階段會保留啟動時的政策。",
+    "儲存的網路、目的地和可寫入路徑變更會在每個工作階段下次執行工具前套用。啟用沙盒也會使用最新設定。",
   "settings.experimental.swePruner.title": "SWE-Pruner",
   "settings.experimental.swePruner.description":
     "啟用 SWE-Pruner：根據智能體提供的聚焦問題，對讀取、搜尋與 shell 工具的大型輸出進行任務感知裁剪",
